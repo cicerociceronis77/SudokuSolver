@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Solver</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header"><h1>Sudoku Solver</h1></header>
+
+    <main>
+
+        <div class="sudoku-grid"> <!-- blocco 9x9 -->
+            <div class="riga-blocchi rb1">
+                <div class="blocco blocco1" data-numeroBlocco="1"> <!-- blocco 3x3 -->
+                    <input type="number" min="1" max="9" class="cella r1c1" data-row="1" data-col="1">
+                    <input type="number" min="1" max="9" class="cella r1c2" data-row="1" data-col="2">
+                    <input type="number" min="1" max="9" class="cella r1c3" data-row="1" data-col="3">
+                    <input type="number" min="1" max="9" class="cella r2c1" data-row="2" data-col="1">
+                    <input type="number" min="1" max="9" class="cella r2c2" data-row="2" data-col="2">
+                    <input type="number" min="1" max="9" class="cella r2c3" data-row="2" data-col="3">
+                    <input type="number" min="1" max="9" class="cella r3c1" data-row="3" data-col="1">
+                    <input type="number" min="1" max="9" class="cella r3c2" data-row="3" data-col="2">
+                    <input type="number" min="1" max="9" class="cella r3c3" data-row="3" data-col="3">
+                </div>
+                <div class="blocco blocco2" data-numeroBlocco="2"> <!-- blocco 3x3 -->
+                    <input type="number" min="1" max="9" class="cella r1c4" data-row="1" data-col="4">
+                    <input type="number" min="1" max="9" class="cella r1c5" data-row="1" data-col="5">
+                    <input type="number" min="1" max="9" class="cella r1c6" data-row="1" data-col="6">
+                    <input type="number" min="1" max="9" class="cella r2c4" data-row="2" data-col="4">
+                    <input type="number" min="1" max="9" class="cella r2c5" data-row="2" data-col="5">
+                    <input type="number" min="1" max="9" class="cella r2c6" data-row="2" data-col="6">
+                    <input type="number" min="1" max="9" class="cella r3c4" data-row="3" data-col="4">
+                    <input type="number" min="1" max="9" class="cella r3c5" data-row="3" data-col="5">
+                    <input type="number" min="1" max="9" class="cella r3c6" data-row="3" data-col="6">
+                </div>
+                <div class="blocco blocco3" data-numeroBlocco="3"> <!-- blocco 3x3 -->
+                    <input type="number" min="1" max="9" class="cella r1c7" data-row="1" data-col="7">
+                    <input type="number" min="1" max="9" class="cella r1c8" data-row="1" data-col="8">
+                    <input type="number" min="1" max="9" class="cella r1c9" data-row="1" data-col="9">
+                    <input type="number" min="1" max="9" class="cella r2c7" data-row="2" data-col="7">
+                    <input type="number" min="1" max="9" class="cella r2c8" data-row="2" data-col="8">
+                    <input type="number" min="1" max="9" class="cella r2c9" data-row="2" data-col="9">
+                    <input type="number" min="1" max="9" class="cella r3c7" data-row="3" data-col="7">
+                    <input type="number" min="1" max="9" class="cella r3c8" data-row="3" data-col="8">
+                    <input type="number" min="1" max="9" class="cella r3c9" data-row="3" data-col="9">
+                </div>
+            </div>
+            <div class="riga-blocchi rb2">
+                <div class="blocco blocco4" data-numeroBlocco="4"> <!-- blocco 3x3 -->
+                    <input type="number" min="1" max="9" class="cella r4c1" data-row="4" data-col="1">
+                    <input type="number" min="1" max="9" class="cella r4c2" data-row="4" data-col="2">
+                    <input type="number" min="1" max="9" class="cella r4c3" data-row="4" data-col="3">
+                    <input type="number" min="1" max="9" class="cella r5c1" data-row="5" data-col="1">
+                    <input type="number" min="1" max="9" class="cella r5c2" data-row="5" data-col="2">
+                    <input type="number" min="1" max="9" class="cella r5c3" data-row="5" data-col="3">
+                    <input type="number" min="1" max="9" class="cella r6c1" data-row="6" data-col="1">
+                    <input type="number" min="1" max="9" class="cella r6c2" data-row="6" data-col="2">
+                    <input type="number" min="1" max="9" class="cella r6c3" data-row="6" data-col="3">
+                </div>
+                <div class="blocco blocco5" data-numeroBlocco="5"> <!-- blocco 3x3 -->
+                    <input type="number" min="1" max="9" class="cella r4c4" data-row="4" data-col="4">
+                    <input type="number" min="1" max="9" class="cella r4c5" data-row="4" data-col="5">
+                    <input type="number" min="1" max="9" class="cella r4c6" data-row="4" data-col="6">
+                    <input type="number" min="1" max="9" class="cella r5c4" data-row="5" data-col="4">
+                    <input type="number" min="1" max="9" class="cella r5c5" data-row="5" data-col="5">
+                    <input type="number" min="1" max="9" class="cella r5c6" data-row="5" data-col="6">
+                    <input type="number" min="1" max="9" class="cella r6c4" data-row="6" data-col="4">
+                    <input type="number" min="1" max="9" class="cella r6c5" data-row="6" data-col="5">
+                    <input type="number" min="1" max="9" class="cella r6c6" data-row="6" data-col="6">
+                </div>
+                <div class="blocco blocco6" data-numeroBlocco="6"> <!-- blocco 3x3 -->
+                    <input type="number" min="1" max="9" class="cella r4c7" data-row="4" data-col="7">
+                    <input type="number" min="1" max="9" class="cella r4c8" data-row="4" data-col="8">
+                    <input type="number" min="1" max="9" class="cella r4c9" data-row="4" data-col="9">
+                    <input type="number" min="1" max="9" class="cella r5c7" data-row="5" data-col="7">
+                    <input type="number" min="1" max="9" class="cella r5c8" data-row="5" data-col="8">
+                    <input type="number" min="1" max="9" class="cella r5c9" data-row="5" data-col="9">
+                    <input type="number" min="1" max="9" class="cella r6c7" data-row="6" data-col="7">
+                    <input type="number" min="1" max="9" class="cella r6c8" data-row="6" data-col="8">
+                    <input type="number" min="1" max="9" class="cella r6c9" data-row="6" data-col="9">
+                </div>
+            </div>
+            <div class="riga-blocchi rb3">
+                <div class="blocco blocco7" data-numeroBlocco="7"> <!-- blocco 3x3 -->
+                    <input type="number" min="1" max="9" class="cella r7c1" data-row="7" data-col="1">
+                    <input type="number" min="1" max="9" class="cella r7c2" data-row="7" data-col="2">
+                    <input type="number" min="1" max="9" class="cella r7c3" data-row="7" data-col="3">
+                    <input type="number" min="1" max="9" class="cella r8c1" data-row="8" data-col="1">
+                    <input type="number" min="1" max="9" class="cella r8c2" data-row="8" data-col="2">
+                    <input type="number" min="1" max="9" class="cella r8c3" data-row="8" data-col="3">
+                    <input type="number" min="1" max="9" class="cella r9c1" data-row="9" data-col="1">
+                    <input type="number" min="1" max="9" class="cella r9c2" data-row="9" data-col="2">
+                    <input type="number" min="1" max="9" class="cella r9c3" data-row="9" data-col="3">
+                </div>
+                <div class="blocco blocco8" data-numeroBlocco="8"> <!-- blocco 3x3 -->
+                    <input type="number" min="1" max="9" class="cella r7c4" data-row="7" data-col="4">
+                    <input type="number" min="1" max="9" class="cella r7c5" data-row="7" data-col="5">
+                    <input type="number" min="1" max="9" class="cella r7c6" data-row="7" data-col="6">
+                    <input type="number" min="1" max="9" class="cella r8c4" data-row="8" data-col="4">
+                    <input type="number" min="1" max="9" class="cella r8c5" data-row="8" data-col="5">
+                    <input type="number" min="1" max="9" class="cella r8c6" data-row="8" data-col="6">
+                    <input type="number" min="1" max="9" class="cella r9c4" data-row="9" data-col="4">
+                    <input type="number" min="1" max="9" class="cella r9c5" data-row="9" data-col="5">
+                    <input type="number" min="1" max="9" class="cella r9c6" data-row="9" data-col="6">
+                </div>
+                <div class="blocco blocco9" data-numeroBlocco="9"> <!-- blocco 3x3 -->
+                    <input type="number" min="1" max="9" class="cella r7c7" data-row="7" data-col="7">
+                    <input type="number" min="1" max="9" class="cella r7c8" data-row="7" data-col="8">
+                    <input type="number" min="1" max="9" class="cella r7c9" data-row="7" data-col="9">
+                    <input type="number" min="1" max="9" class="cella r8c7" data-row="8" data-col="7">
+                    <input type="number" min="1" max="9" class="cella r8c8" data-row="8" data-col="8">
+                    <input type="number" min="1" max="9" class="cella r8c9" data-row="8" data-col="9">
+                    <input type="number" min="1" max="9" class="cella r9c7" data-row="9" data-col="7">
+                    <input type="number" min="1" max="9" class="cella r9c8" data-row="9" data-col="8">
+                    <input type="number" min="1" max="9" class="cella r9c9" data-row="9" data-col="9">
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="validita-sudoku errore">This Sudoku contains an error</div>
+        <div class="validita-sudoku una-soluzione">Valid Sudoku with a unique solution</div>
+        <div class="validita-sudoku due-soluzioni">Sudoku with two or more possible solutions</div>
+        <div class="validita-sudoku nessuna-soluzione">This Sudoku has no solution</div>
+        
+
+        <div>
+            <button class="risolvi-btn">Solve</button>
+            <button class="reset-btn">Reset</button>
+        </div>
+        
+
+
+        <hr>
+
+        <section class="descrizione intento">
+            <h2>Sudoku Solver's aim</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+
+        <section class="descrizione funzionamento">
+            <h2>How does Sudoku Solver work</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+
+        <section class="descrizione creazione">
+            <h2>Create your own Sudoku</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullamco laboriosam, nisi ut aliquid ex ea commodi consequatur. Duis aute irure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p class="footer-p">&copy; 2025 Sudoku Solver. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
