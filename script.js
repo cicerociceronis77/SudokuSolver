@@ -328,7 +328,6 @@ function risolviMatriceSudoku(matrice) {
                         risolviMatriceSudoku(matrice);
                         if (soluzioniTrovate > 1) {
                             interrotta = true;
-                            document.querySelector('.due-soluzioni').style.display = 'block';
                             return;
                         }
                     }
@@ -342,9 +341,6 @@ function risolviMatriceSudoku(matrice) {
     if (soluzioniTrovate === 1) {
         copiaMatriceInMatrice(matrice, matricePrimaSoluzione);
         copiaMatriceNelSudoku(matricePrimaSoluzione);
-        if (!interrotta) {
-            successoGriglia();
-        }
     }
 }
 
@@ -353,9 +349,16 @@ document.querySelector('.risolvi-btn').addEventListener('click', () => {
     interrotta = false;
     azzeraMatrice(matricePrimaSoluzione);
 
-    // Aggiorna matrice da griglia, se serve (eventualmente qui)
-    // Oppure assicurati che matrice sia aggiornata sempre dai keyup degli input
-
     risolviMatriceSudoku(matrice);
+
+    if (soluzioniTrovate === 0) {
+        document.querySelector('.nessuna-soluzione').style.display = 'block';
+    } else if (soluzioniTrovate === 1) {
+        successoGriglia();
+    } else {
+        document.querySelector('.due-soluzioni').style.display = 'block';
+    }
+
+    
     azzeraMatrice(matrice);
 });
