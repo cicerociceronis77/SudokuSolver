@@ -319,7 +319,7 @@ let soluzioniTrovate = 0;
 const matricePrimaSoluzione = Array.from({ length: 9 }, () => Array(9).fill(0));
 let interrotta = false;
 let passiTentati = 0;
-const limitePassi = 50000000;
+const limitePassi = 10000000;
 azzeraMatrice(matricePrimaSoluzione);
 
 function risolviMatriceSudoku(matrice) {
@@ -338,7 +338,6 @@ function risolviMatriceSudoku(matrice) {
                 for (let k = 1; k <= 9; k++){
                     matrice[i][j] = k;
                     passiTentati++;
-                    console.log(passiTentati);
                     if (posizioneValidaMatrice(matrice, i, j)){
                         risolviMatriceSudoku(matrice);
                         if (soluzioniTrovate > 1) {
