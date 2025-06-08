@@ -338,6 +338,7 @@ function risolviMatriceSudoku(matrice) {
                 for (let k = 1; k <= 9; k++){
                     matrice[i][j] = k;
                     passiTentati++;
+                    console.log(passiTentati);
                     if (posizioneValidaMatrice(matrice, i, j)){
                         risolviMatriceSudoku(matrice);
                         if (soluzioniTrovate > 1) {
