@@ -304,6 +304,17 @@ function azzeraMatrice(matrice) {
     }
 }
 
+function matriciUguali(matriceA, matriceB) {
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++){
+            if (matriceA[i][j] !== matriceB[i][j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 let soluzioniTrovate = 0;
 const matricePrimaSoluzione = Array.from({ length: 9 }, () => Array(9).fill(0));
 let interrotta = false;
@@ -337,13 +348,19 @@ function risolviMatriceSudoku(matrice) {
             }
         }
     }
-    soluzioniTrovate += 1;
-    if (soluzioniTrovate === 1) {
+    
+    if (soluzioniTrovate === 0) {
+        soluzioniTrovate = 1;
         copiaMatriceInMatrice(matrice, matricePrimaSoluzione);
         copiaMatriceNelSudoku(matricePrimaSoluzione);
+    } else {
+        if (!matriciUguali(matrice, matricePrimaSoluzione)) {
+            soluzioniTrovate = 2;
+            interrotta = true;
+            return;
+        }
     }
 }
-
 document.querySelector('.risolvi-btn').addEventListener('click', () => {
     soluzioniTrovate = 0;     // resetto variabili prima di iniziare
     interrotta = false;
