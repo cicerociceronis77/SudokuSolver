@@ -318,11 +318,13 @@ function matriciUguali(matriceA, matriceB) {
 let soluzioniTrovate = 0;
 const matricePrimaSoluzione = Array.from({ length: 9 }, () => Array(9).fill(0));
 let interrotta = false;
+let passiTentati = 0;
+const limitePassi = 50000000;
 azzeraMatrice(matricePrimaSoluzione);
 
 function risolviMatriceSudoku(matrice) {
 
-    if (interrotta) {
+    if (interrotta || passiTentati > limitePassi) {
         return;
     }
 
@@ -335,6 +337,7 @@ function risolviMatriceSudoku(matrice) {
             if (matrice[i][j] === 0){
                 for (let k = 1; k <= 9; k++){
                     matrice[i][j] = k;
+                    passiTentati++;
                     if (posizioneValidaMatrice(matrice, i, j)){
                         risolviMatriceSudoku(matrice);
                         if (soluzioniTrovate > 1) {
@@ -361,8 +364,10 @@ function risolviMatriceSudoku(matrice) {
         }
     }
 }
+
 document.querySelector('.risolvi-btn').addEventListener('click', () => {
     soluzioniTrovate = 0;     // resetto variabili prima di iniziare
+    passiTentati = 0;
     interrotta = false;
     azzeraMatrice(matricePrimaSoluzione);
 
